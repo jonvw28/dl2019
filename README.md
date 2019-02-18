@@ -11,8 +11,9 @@ Corrigan (AstraZeneca).
 
 ### Timetable (subject to revision)
 
-1. Feb 22.  Introduction.  From perceptrons to multilayer
-   perceptrons.  The importance of features.  Practical matters.  (SJE)
+1. Feb 22.  Introduction: motivating examples.  History.  From
+   perceptrons to multilayer perceptrons.  The importance of features.
+   Practical matters.  (SJE)
 
 2. Mar 01.  Learning in networks.  (Error functions, Back propagation,
    automatic differentiation, gradient-descent methods).  First
