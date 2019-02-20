@@ -32,6 +32,10 @@ in here.
 [Deep learning with R](https://www.manning.com/books/deep-learning-with-r)
 
 
+### Reading
+
+Key referencs will be made available in this [Paperpile folder](https://paperpile.com/shared/pb4w0p)
+
 
 
 
