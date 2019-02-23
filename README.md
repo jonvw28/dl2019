@@ -13,9 +13,7 @@ Corrigan (AstraZeneca).
 
 1. Feb 22.  Introduction: motivating examples.  History.  From
    perceptrons to multilayer perceptrons.  The importance of features.
-   Practical matters.  (SJE)
-
-[Lecture notes](dl-1.pdf)
+   Practical matters.  (SJE)  [Lecture notes](dl-1.pdf)
 
 
 2. Mar 01.  Learning in networks.  (Error functions, Back propagation,
