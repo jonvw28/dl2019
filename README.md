@@ -15,6 +15,9 @@ Corrigan (AstraZeneca).
    perceptrons to multilayer perceptrons.  The importance of features.
    Practical matters.  (SJE)
 
+[Lecture notes](dl-1.pdf)
+
+
 2. Mar 01.  Learning in networks.  (Error functions, Back propagation,
    automatic differentiation, gradient-descent methods).  First
    examples at classification.  Hyper-parameters. (SJE)
