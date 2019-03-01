@@ -20,7 +20,8 @@ Corrigan (AstraZeneca).
    automatic differentiation, gradient-descent methods).  First
    examples at classification.  Hyper-parameters. (SJE)
    [Lecture notes](dl-2.pdf)
-   [mnist](mnist)
+   [mnist Rmd](mnist/mnist_bp.Rmd)
+   [mnist html](https://raw.githack.com/sje30/dl2019/master/mnist/mnist_bp.html)
    
 3. Mar 08.  Image classification and segmentation.  Convolutional
    neural networks. Autoencoders. Applications. (SJE and AC).
