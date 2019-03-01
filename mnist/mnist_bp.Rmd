@@ -1,0 +1,159 @@
+---
+title: "MNIST classification with back propagation"
+output:
+  html_document:
+    toc: true
+    self-contained: true
+    fig_caption: true
+---
+
+## Libraries and helper functions
+
+```{r}
+library(keras)
+library(knitr)
+opts_chunk$set(cache = TRUE)
+
+image0 = function(im, ...) {
+  ## helper function to draw image the right way around.
+  image(t(im[nrow(im):1,]), xaxt="n", yaxt="n", asp=1, ...)
+}
+```
+
+
+## Read in the data.
+
+```{r}
+
+## Data stored in ~/.keras/datasets/  -- so that folder can grow...
+mnist <- dataset_mnist()
+train_images <- mnist$train$x
+train_labels <- mnist$train$y
+test_images <- mnist$test$x
+test_labels <- mnist$test$y
+
+str(train_images)
+
+## e.g. let's see an image.
+id = 6000
+im = train_images[id,,]
+image0(im)
+title(sprintf("label for image %d is %s",id, train_labels[id]))
+
+## reshape
+train_images <- array_reshape(train_images, c(60000, 28*28))
+train_images <- train_images / 255      #normalize pixel to [0,1]
+
+test_images <- array_reshape(test_images, c(10000, 28*28))
+test_images <- test_images / 255      #normalize pixel to [0,1]
+
+
+## train_images is now a NxL matrix, where N=number of samples, L=28*28
+dim(train_images)
+dim(test_images)
+
+
+## convert training signal to a category (one HOT)
+train_labels <- to_categorical(train_labels)
+test_labels <- to_categorical(test_labels)
+```
+
+
+# Our first network: 1 hidden layer.
+
+We first define the network and then compile it.  Note the pipe
+operator %>% which should be read as "then"
+
+```{r}
+network <- keras_model_sequential() %>%
+  layer_dense(units=10, activation="softmax", input_shape=c(28 * 28))
+## see what this is:
+network
+
+network %>% compile(
+              optimizer = "rmsprop",
+              loss = "categorical_crossentropy",
+              metrics = c("accuracy"))
+```
+
+## Train the network
+
+
+```{r}
+network %>% fit(train_images, train_labels, epochs=5, batch_size = 128)
+network %>% evaluate(train_images, train_labels)
+```
+
+
+## Test the network 
+
+Now we evaluate the test data 
+```{r}
+metrics <- network %>% evaluate(test_images, test_labels)
+metrics
+
+network %>% predict_classes(test_images[1:10,])
+mnist$test$y[1:10]
+```
+
+## Show resulting weights ("filters")
+
+```{r, fig.width=6, fig.height=8}
+w = get_weights(network)
+
+h = w[[1]]
+par(mfrow=c(3,4))
+for (i in 1:10) {
+  h1 = matrix(h[,i], 28,28,byrow=T)
+  image0(h1, col=cm.colors(100))
+}
+```
+
+
+# Network with two hidden layers
+
+
+```{r}
+network2 <- keras_model_sequential() %>%
+  layer_dense(units=512, activation="relu", input_shape=c(28 * 28)) %>%
+  layer_dense(units=10, activation="softmax")
+network2 %>% compile(
+              optimizer = "rmsprop",
+              loss = "categorical_crossentropy",
+              metrics = c("accuracy"))
+network2
+```
+
+```
+
+## Train the network
+
+
+```{r}
+network2 %>% fit(train_images, train_labels, epochs=5, batch_size = 128)
+network2 %>% evaluate(train_images, train_labels)
+```
+
+
+## Test the network 
+
+Now we evaluate the test data 
+```{r}
+metrics <- network2 %>% evaluate(test_images, test_labels)
+metrics
+
+network2 %>% predict_classes(test_images[1:10,])
+mnist$test$y[1:10]
+```
+
+
+
+
+
+## Compilation
+
+To compile this document
+
+```{r eval=FALSE}
+rmarkdown::render('mnist_bp.Rmd')
+```

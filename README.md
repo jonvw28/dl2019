@@ -19,6 +19,8 @@ Corrigan (AstraZeneca).
 2. Mar 01.  Learning in networks.  (Error functions, Back propagation,
    automatic differentiation, gradient-descent methods).  First
    examples at classification.  Hyper-parameters. (SJE)
+   [Lecture notes](dl-2.pdf)
+   [mnist](mnist)
    
 3. Mar 08.  Image classification and segmentation.  Convolutional
    neural networks. Autoencoders. Applications. (SJE and AC).
