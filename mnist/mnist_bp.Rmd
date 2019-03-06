@@ -9,6 +9,8 @@ output:
 
 ## Libraries and helper functions
 
+Code taken from Chapter 3 of Deep learning with R.
+
 ```{r}
 library(keras)
 library(knitr)
@@ -59,7 +61,7 @@ test_labels <- to_categorical(test_labels)
 ```
 
 
-# Our first network: 1 hidden layer.
+# Our first network: no hidden layer.
 
 We first define the network and then compile it.  Note the pipe
 operator %>% which should be read as "then"
@@ -110,7 +112,7 @@ for (i in 1:10) {
 ```
 
 
-# Network with two hidden layers
+# Network with one hidden layer 
 
 
 ```{r}
