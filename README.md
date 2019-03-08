@@ -26,6 +26,7 @@ Corrigan (AstraZeneca).
    
 3. Mar 08.  Image classification and segmentation.  Convolutional
    neural networks. Autoencoders. Applications. (SJE and AC).
+   [Lecture notes/1](dl-3.pdf)
    
 4. Mar 15.  Temporal processing.  Recurrent neural networks (RNN) and
    Long-short-term memories (LSTM).  Applications.  (SJE and MJ).
