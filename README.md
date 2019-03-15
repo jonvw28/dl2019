@@ -44,7 +44,8 @@ in here.
 
 Key referencs will be made available in this [Paperpile folder](https://paperpile.com/shared/pb4w0p)
 
+### Assignments
 
-
+[Assignment 1](dla1_2019.pdf)
 
 
